@@ -1,0 +1,2 @@
+Private-Package org.ow2.util.file.*, com.peergreen.ear.*
+Export-Package com.peergreen.ear
