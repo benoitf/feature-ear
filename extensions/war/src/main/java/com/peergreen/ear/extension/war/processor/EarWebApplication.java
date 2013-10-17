@@ -53,7 +53,11 @@ public class EarWebApplication implements com.peergreen.deployment.Processor<Web
                     // Check
                     if (processorContext.getArtifact().uri().equals(war.getArtifactURI())) {
                         // Found a matching URI, sets the context
-                        webApplication.setContextPath(war.getContextRoot());
+                        String ctxRoot = war.getContextRoot();
+                        if (ctxRoot == null || "/".equals(ctxRoot)) {
+                            ctxRoot = "";
+                        }
+                        webApplication.setContextPath(ctxRoot);
                     }
                 }
             }
